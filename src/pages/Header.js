@@ -58,45 +58,7 @@ const Header = () => {
                       className="mt-2"
 
                     />
-                  {/* dropdown */}
-                  {/* <NavDropdown img="src={Pic} style={{height:25px, width:37.5px}}">
-                  <NavDropdown.Item href="#action/3.1">
-                    <Image
-                      src={Pic}
-                      style={{ height: "25px", width: "37.5px" }}
-                      className="mt-2"
-                    />
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
-                    Another action
-                  </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
-                    Something
-                  </NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">
-                    Separated link
-                  </NavDropdown.Item>
-                </NavDropdown>
-                <Image
-                  src={Pic}
-                  style={{ height: "25px", width: "37.5px" }}
-                  className="mt-2"
-                /> */}
-
-                  {/* <FloatingLabel
-                    controlId="floatingSelectGrid"
-                    
-                    className=" me-md-5 "
-                  >
-                    <Form.Select aria-label="Floating label select example">
-                      <option><img src={Pic} /> </option>
-                      <option value="1">ຜູ້ໃຫຍ່</option>
-                      <option value="2">ເດັກນ້ອຍ</option>
-                      <option value="3">ຄົນດຽວ</option>
-                      <option value="4">ຫຼາຍຄົນ</option>
-                    </Form.Select>
-                  </FloatingLabel> */}
+                
 
                   {/* modal */}
                    <Modal show={show} onHide={handle}>
