@@ -52,7 +52,7 @@ const FormSignUp = () => {
                 placeholder="password..."
                 name="password"
                 onChange={handleChang}
-                value={values.profile}
+                value={values.password}
               />
                 {error?.password && <p className='text-danger mt-1 font'>password is required</p>}
               <label className="fw-bold mt-4">ໂປຣຟາຍ</label>
@@ -63,7 +63,6 @@ const FormSignUp = () => {
                 placeholder="Profile..."
                 onChange={handleChang}
               />
-                {error?.profile && <p className='text-danger mt-1 font'>profile is required</p>}
               <div className="mb-5 mt-3 d-flex justify-content-between align-items-center mt-2">
               <Button variant="success" type="submit">
                 ບັນທຶກ

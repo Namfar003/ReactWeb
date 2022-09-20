@@ -21,38 +21,37 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { icons } from "react-icons/lib";
 function Register() {
-  const [error, setError] = useState({});
   const [show, setShow] = useState(false);
   const handle = () => setShow(!show);
 
-  const popup = () => {
-    Swal.fire("ທ່ານລົງທະບຽບສຳເລັດແລ້ວ", "", "success");
-  };
-  const popup1 = () => {
-    Swal.fire("ທ່ານລົງທະບຽບສຳເລັດແລ້ວ", "", "error");
-  };
-  const popup2 = () => {
-    Swal.fire("ອີເມວມີໃນລະບົບເເລ້ວ", "", "warning");
-  };
-  const [register, setRegister] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-    profile: "",
-  });
+  // const popup = () => {
+  //   Swal.fire("ທ່ານລົງທະບຽບສຳເລັດແລ້ວ", "", "success");
+  // };
+  // const popup1 = () => {
+  //   Swal.fire("ທ່ານລົງທະບຽບສຳເລັດແລ້ວ", "", "error");
+  // };
+  // const popup2 = () => {
+  //   Swal.fire("ອີເມວມີໃນລະບົບເເລ້ວ", "", "warning");
+  // };
+  // const [register, setRegister] = useState({
+  //   firstname: "",
+  //   lastname: "",
+  //   email: "",
+  //   password: "",
+  //   profile: "",
+  // });
   // const [regis, setRegis] = useState({
 
   // });
 
-  const handleChang = (e) => {
-    const [name, value] = e.target;
-    setRegister({
-      ...register,
-      [name]: value,
-    });
-    return handleChang();
-  };
+  // const handleChang = (e) => {
+  //   const [name, value] = e.target;
+  //   setRegister({
+  //     ...register,
+  //     [name]: value,
+  //   });
+  //   return handleChang();
+  // };
 
   // const newData = {
   //   firstname: regis.firstname,
@@ -62,42 +61,38 @@ function Register() {
   //   profile: regis.profile,
   // };
 
-  const postData = () => {
-    const formData = new FormData();
-    // formData.append("file", regis.profile);
-    // formData.append("upload_preset", "picture");
-    axios
-      .post("https://api.cloudinary.com/v1_1/travellaos/image/upload")
-      .then((res) => {
-        // newData["profile"] = res.data.url;
-        axios
-          .post("http://localhost:5000/api/SignUp")
-          .then((res) => {
-            if (res?.data?.text1 === "Email Already Exist") {
-              popup2();
-            } else if (
-              res?.data?.firstname == "" ||
-              res?.data?.lastname == "" ||
-              res?.data?.email == ""
-            ) {
-              popup1();
-            } else {
-              console.log(res.data);
-              popup();
-            }
-          })
-          .catch((error) => {
-            console.log(error);
-          });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setRegister(validateInfo(register))
-  };
+  // const postData = () => {
+  //   const formData = new FormData();
+  //   formData.append("file", regis.profile);
+  //   formData.append("upload_preset", "picture");
+  //   axios
+  //     .post("https://api.cloudinary.com/v1_1/travellaos/image/upload")
+  //     .then((res) => {
+  //       // newData["profile"] = res.data.url;
+  //       axios
+  //         .post("http://localhost:5000/api/SignUp")
+  //         .then((res) => {
+  //           if (res?.data?.text1 === "Email Already Exist") {
+  //             popup2();
+  //           } else if (
+  //             res?.data?.firstname == "" ||
+  //             res?.data?.lastname == "" ||
+  //             res?.data?.email == ""
+  //           ) {
+  //             popup1();
+  //           } else {
+  //             console.log(res.data);
+  //             popup();
+  //           }
+  //         })
+  //         .catch((error) => {
+  //           console.log(error);
+  //         });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
   return (
     <>
       <div>
