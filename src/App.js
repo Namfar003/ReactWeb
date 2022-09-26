@@ -1,40 +1,36 @@
-
-import './App.css';
-import {Route, Routes} from 'react-router-dom';
-import Login from './pages/Login';
-import All from './pages/Home';
-import LuangPhabang from './pages/LuangPhabang';
-import Part from './pages/Part';
-import Register from './pages/Register';
+import React, { useState, useEffect } from "react";
+import { LoginContext } from "./Context/index";
+import MainRoute from "./Routes/MainRoute";
 function App() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [firstname, setFirstname] = useState("");
+  const [email,setEmail] = useState("");
+
+  const checkLogin = () => {
+    let token = localStorage.getItem("token");
+    if (token == null) {
+      setIsLogin(false);
+    } else {
+      setIsLogin(true);
+    }
+  };
+
+  useEffect(() => {
+    checkLogin();
+    setFirstname(localStorage.getItem("firstname"));
+    setEmail(localStorage.getItem("email"));
+  }, [firstname]);
+  
+
   return (
-    <div >
-   
-     {/* <Header/>
-     <Content/>
-     <Pic/>
-     <Second/>
-     <Footer/>
-     <Example/> */}
-     <Routes>
-      <Route exact path='/' element={<All/>}/>
-      <Route path='/Login' element={<Login/>}/>
-      <Route path='/LuangPhabang' element={<LuangPhabang/>}/>
-      <Route path='/Part' element={<Part/>}/>
-      <Route path ='/Register' element={<Register/>}/>
-      
-      
-
-
-      
-      
-     </Routes>
-    
-    
-    
-    
-     
-    </div>
+    <>
+      <LoginContext.Provider
+        value={{ isLogin, firstname,email, setIsLogin, setFirstname, setEmail }}
+        
+      >
+        <MainRoute />
+      </LoginContext.Provider>
+    </>
   );
 }
 

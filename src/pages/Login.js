@@ -82,9 +82,9 @@ function Login() {
       </div>
 
       <Container>
-      <Row md={3} className="d-flex justify-content-center  ">
+      <Row md={3} className="d-flex justify-content-center   " >
         <Col
-          className=" mt-5 mb-5 shadow-lg pt-3"
+          className=" mt-5 mb-5 shadow-lg pt-3 "
           style={{ borderRadius: "2%", border: "1px solid #ecf0f1" }}
         >
           <h3

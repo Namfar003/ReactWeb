@@ -1,22 +1,45 @@
-import React,{useState} from "react";
-
+import React,{useState,useContext} from "react";
+import { useNavigate } from "react-router-dom";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import {Link} from 'react-router-dom';
+import {LoginContext} from '../Context/index'
+import {CgProfile} from 'react-icons/cg'
+import {CgLogOff} from 'react-icons/cg'
+import {FaUserCircle} from 'react-icons/fa'
+import {BiEditAlt} from 'react-icons/bi'
+import {ImProfile} from 'react-icons/im'
+import {MdOutlineMarkEmailUnread} from 'react-icons/md'
+import {FaUserEdit} from 'react-icons/fa'
 import {
   Button,
   Image,
   Dropdown,
   NavDropdown,
-  Modal
+  Modal,
+  DropdownButton
   
 } from "react-bootstrap";
 import Pictures from "../Image/LOGO.png";
 import Pic from "../Image/Flag_of_Laos 1.png";
 
 const Header = () => {
+  const navigate =useNavigate()
+  const {isLogin, firstname,email, setIsLogin} = useContext(LoginContext)
   const [show, setShow] = useState(false);
   const handle = () => setShow(!show)
+
+
+const logout = () => {
+  localStorage.clear('token')
+  setIsLogin(false)
+}
+
+const link =()=>{
+navigate("/EditName")
+}
+
+
   return (
     <>
       <div>
@@ -77,11 +100,34 @@ const Header = () => {
               </Navbar.Collapse>
             </div>
           </div>
+          {!isLogin ?
           <Link to='/Login'>
           <Button className="me-md-5" type="button" variant="outline-danger" >
             ສ້າງບັນຊີ
           </Button>
-          </Link>
+          </Link> : 
+          <div className="me-md-5 d-flex bg-primary " style={{ borderRadius:'5px'}} >
+         {/* <h4 className=""> {firstname}</h4>
+         <button className="btn btn-danger" onClick={logout}>log Out</button> */}
+         
+      <CgProfile 
+      className="fs-4 mt-2 ms-md-1 text-light"
+      />
+      <DropdownButton
+      align="end"
+      
+      id="dropdown-menu-align-end"
+    >
+      <Dropdown.Item eventKey="1"><p className="" style={{fontFamily:'Roboto'}}> <FaUserCircle className="me-md-2 fs-5" /> {firstname}</p></Dropdown.Item>
+      <Dropdown.Item eventKey="2" style={{fontFamily:'Roboto'}} className='d-flex' onClick={link} > <MdOutlineMarkEmailUnread className="me-md-2 fs-5 text-success" /><p>{email}</p> </Dropdown.Item>
+      <Dropdown.Item eventKey="2" style={{fontFamily:'Roboto'}} className='d-flex' onClick={link} > <FaUserEdit  className="me-md-2 fs-5" /><p>Edit Profile</p> </Dropdown.Item>
+     
+      <Dropdown.Item eventKey="2" style={{fontFamily:'Roboto'}} className='d-flex' onClick={logout}> <CgLogOff  className="me-md-2 fs-5 text-danger" /><p>Log out</p> </Dropdown.Item>
+      
+    </DropdownButton>
+
+          </div>
+}
         </Navbar>
       </div>
     </>

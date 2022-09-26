@@ -9,7 +9,7 @@ import Example from './Example';
 function Home() {
   return (
     <>
-        <Header/>
+     <Header/>
      <Content/>
      <Pic/>
      <Second/>

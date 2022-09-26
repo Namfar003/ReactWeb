@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Pictures from "../Image/LOGO.png";
 import Pic from "../Image/Flag_of_Laos 1.png";
-import FormSignUp from '../components/FormSignUp'
+import FormSignUp from "../components/FormSignUp";
 import { Link } from "react-router-dom";
 import {
   Container,
@@ -161,21 +161,20 @@ function Register() {
       <Container>
         <Row md={3} className="d-flex justify-content-center  ">
           <Col
-            className=" mt-5 mb-5 shadow-lg pt-3"
+            className=" mt-5 mb-5 shadow-lg pt-3 "
             style={{ borderRadius: "2%", border: "1px solid #ecf0f1" }}
           >
-           <div>
-           <h3
-              className="text-center mt-5 fw-bold "
-              style={{ color: "#7f8c8d" }}
-            >
-              ລົງທະບຽນ
-            </h3>
-           </div>
-            <FormSignUp/>
+            <div>
+              <h3
+                className="text-center mt-5 fw-bold "
+                style={{ color: "#7f8c8d" }}
+              >
+                ລົງທະບຽນ
+              </h3>
+            </div>
+            <FormSignUp />
           </Col>
         </Row>
-        
       </Container>
     </>
   );
